@@ -4,32 +4,25 @@
  * Find the sum of all the primes below two million.
  */
 
-const TARGET = 2000000;
-let number = 1;
-let sum = 0;
-let i;
+let answer = 0;
+let number = 0;
 
-while (number < TARGET) {
-    if (is_prime(number)) {
-        sum += number;
+while (number < 2000000) {
+    if (is_prime(++number)) {
+        answer += number;
     }
-    number++;
 }
 
-console.log(sum);
+// Answer : 142913828922
+document.getElementById('answer').textContent = answer;
 
-// * FUNCTION * //
 function is_prime(number) {
-    let i;
-    let sqrt;
-
     if (number === 1) {
         return false;
     } else if (number === 2) {
         return true;
     } else if (number % 2 !== 0) {
-        sqrt = Math.ceil(Math.sqrt(number));
-        for (i = 3; i <= sqrt; i += 2) {
+        for (let i = 3, sqrt = Math.floor(Math.sqrt(number)); i <= sqrt; i += 2) {
             if (number % i === 0) {
                 return false;
             }
