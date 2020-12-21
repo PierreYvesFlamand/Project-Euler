@@ -13,7 +13,7 @@ while (answer === null) {
         if (number % i !== 0) {
             break;
         }
-        if (i == 20) {
+        if (i === 20) {
             answer = number;
         }
     }
