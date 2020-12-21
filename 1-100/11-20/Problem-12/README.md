@@ -50,8 +50,6 @@ while (divisor < 500) {
 
 **Answer : 76576500**
 
--
-
 [Live Demo](https://pierreyvesflamand.github.io/Project-Euler/1-100/11-20/Problem-12/)
 
 </p>
