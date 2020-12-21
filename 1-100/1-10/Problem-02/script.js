@@ -7,22 +7,15 @@
  * find the sum of the even-valued terms.
  */
 
-let val_n0 = 1,
-    val_n1 = 2,
-    val_n2,
-    sum = 0;
+let answer = 0;
+let [previous, current] = [0, 1];
 
-// Ne garder que les nombres plus petit que 4 million
-while (val_n1 < 4000000) {
-    // Check si le nombre est pair
-    if (val_n1 % 2 == 0) {
-        sum += val_n1;
+while (current < 4000000) {
+    if (current % 2 === 0) {
+        answer += current;
     }
-
-    // Calcule de nombre de Fibonacci suivant
-    val_n2 = val_n1 + val_n0;
-    val_n0 = val_n1;
-    val_n1 = val_n2;
+    [previous, current] = [current, current + previous];
 }
 
-console.log(sum);
+// Answer : 4613732
+document.getElementById('answer').textContent = answer;
