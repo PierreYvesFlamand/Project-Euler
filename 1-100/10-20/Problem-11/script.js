@@ -1,6 +1,6 @@
 /*
  * Problem 11
- * In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
+ * In the 20×20 grid below, four numberss along a diagonal line have been marked in red.
  *
  *                          |  |  |  |
  *                         \/ \/ \/ \/
@@ -29,68 +29,53 @@
  *      08022297381500400075040507785212507791084949994017811857608717409843694804566200814931735579142993714067538830034913366552709523046011426924685601325671370236912231167151676389419236542240402866331380244732609903450244753353783684203517125032988128642367102638406759547066183864706726206802621220956394396308409166499421245558056673992697177878968314883489637221362309750076442045351400613397343133957817532822753167159403800462161409535692163905429635314755588824001754243629855786560048357189070544443744602158515417581980816805944769287392138652177704895540045208839735991607975732162626793327986688366887576220720346336746551232639353690442167338253911249472180846293240627636206936417230238834629969826759857404361620733529783190017431497148868116235705540170547183515469169233486143520189196748
  *
  *
- * The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
- * What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+ * The product of these numberss is 26 × 63 × 78 × 14 = 1788696.
+ * What is the greatest product of four adjacent numberss in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
  */
 
-const GRID_LENGTH = 20;
-let number_string,
-    number_split,
-    number_split_length,
-    number_line = [],
-    number = [];
-let i, j;
-let product, greatest_product;
+let answer = 0;
+let numbers = [];
 
-number_string =
-    "08022297381500400075040507785212507791084949994017811857608717409843694804566200814931735579142993714067538830034913366552709523046011426924685601325671370236912231167151676389419236542240402866331380244732609903450244753353783684203517125032988128642367102638406759547066183864706726206802621220956394396308409166499421245558056673992697177878968314883489637221362309750076442045351400613397343133957817532822753167159403800462161409535692163905429635314755588824001754243629855786560048357189070544443744602158515417581980816805944769287392138652177704895540045208839735991607975732162626793327986688366887576220720346336746551232639353690442167338253911249472180846293240627636206936417230238834629969826759857404361620733529783190017431497148868116235705540170547183515469169233486143520189196748";
-number_split = number_string.split("");
-number_split_length = number_split.length;
-
-for (i = 0, j = 0; i < number_split_length; i += 2) {
-    number_line.push(parseInt(number_split[i]) * 10 + parseInt(number_split[i + 1]));
-    if (number_line.length === GRID_LENGTH) {
-        number[j++] = number_line.slice();
-        number_line = [];
-    }
+const numStr =
+    '08022297381500400075040507785212507791084949994017811857608717409843694804566200814931735579142993714067538830034913366552709523046011426924685601325671370236912231167151676389419236542240402866331380244732609903450244753353783684203517125032988128642367102638406759547066183864706726206802621220956394396308409166499421245558056673992697177878968314883489637221362309750076442045351400613397343133957817532822753167159403800462161409535692163905429635314755588824001754243629855786560048357189070544443744602158515417581980816805944769287392138652177704895540045208839735991607975732162626793327986688366887576220720346336746551232639353690442167338253911249472180846293240627636206936417230238834629969826759857404361620733529783190017431497148868116235705540170547183515469169233486143520189196748';
+const numSplit = numStr.match(/.{1,2}/g).map((num) => parseInt(num));
+while (numSplit.length) {
+    numbers.push(numSplit.splice(0, 20));
 }
 
-greatest_product = 0;
-
-for (i = 0; i < GRID_LENGTH; i++) {
-    for (j = 0; j < GRID_LENGTH; j++) {
+for (i = 0; i < 20; i++) {
+    for (j = 0; j < 20; j++) {
         // Production RIGHT --> LEFT
-        if (j < GRID_LENGTH - 3) {
-            product = number[i][j] * number[i][j + 1] * number[i][j + 2] * number[i][j + 3];
-            if (product > greatest_product) {
-                greatest_product = product;
-            }
+        if (j < 20 - 3) {
+            const product = numbers[i][j] * numbers[i][j + 1] * numbers[i][j + 2] * numbers[i][j + 3];
+
+            answer = product > answer ? product : answer;
         }
 
         // Production DOWN --> UP
-        if (i < GRID_LENGTH - 3) {
-            product = number[i][j] * number[i + 1][j] * number[i + 2][j] * number[i + 3][j];
-            if (product > greatest_product) {
-                greatest_product = product;
-            }
+        if (i < 20 - 3) {
+            const product = numbers[i][j] * numbers[i + 1][j] * numbers[i + 2][j] * numbers[i + 3][j];
+
+            answer = product > answer ? product : answer;
         }
 
-        // Production DIAGONALLY (De haut-gauche vers bas-droite)
-        if (j < GRID_LENGTH - 3 && i < GRID_LENGTH - 3) {
-            product = number[i][j] * number[i + 1][j + 1] * number[i + 2][j + 2] * number[i + 3][j + 3];
-            if (product > greatest_product) {
-                greatest_product = product;
-            }
+        // Production DIAGONALLY -- UP-LEFT --> DOWN-RIGHT
+        if (j < 20 - 3 && i < 20 - 3) {
+            const product =
+                numbers[i][j] * numbers[i + 1][j + 1] * numbers[i + 2][j + 2] * numbers[i + 3][j + 3];
+
+            answer = product > answer ? product : answer;
         }
 
-        // Production DIAGONALLY (De haut-droite vers bas-gauche)
-        if (j >= 3 && i < GRID_LENGTH - 3) {
-            product = number[i][j] * number[i + 1][j - 1] * number[i + 2][j - 2] * number[i + 3][j - 3];
-            if (product > greatest_product) {
-                greatest_product = product;
-            }
+        // Production DIAGONALLY -- UP-RIGHT --> DOWN-LEFT
+        if (j >= 3 && i < 20 - 3) {
+            const product =
+                numbers[i][j] * numbers[i + 1][j - 1] * numbers[i + 2][j - 2] * numbers[i + 3][j - 3];
+
+            answer = product > answer ? product : answer;
         }
     }
 }
 
-console.log(greatest_product);
+// Answer : 70600674
+document.getElementById('answer').textContent = answer;
