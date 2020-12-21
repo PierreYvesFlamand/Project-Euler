@@ -8,20 +8,19 @@
  * Find the product abc.
  */
 
-let a,
-    b,
-    c = 3;
-let product = 0;
+let answer = null;
+let c = 3;
 
-while (product == 0) {
-    for (b = 2; b < c; b++) {
-        for (a = 1; a < b; a++) {
-            if (a * a + b * b == c * c && a + b + c == 1000) {
-                product = a * b * c;
+while (answer === null) {
+    for (let b = 2; b < c; b++) {
+        for (let a = 1; a < b; a++) {
+            if (a * a + b * b === c * c && a + b + c === 1000) {
+                answer = a * b * c;
             }
         }
     }
     c++;
 }
 
-console.log(product);
+// Answer : 31875000
+document.getElementById('answer').textContent = answer;
