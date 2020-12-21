@@ -22,15 +22,12 @@ while (target !== 1) {
 document.getElementById('answer').textContent = answer;
 
 function is_prime(number) {
-    let sqrt;
-
     if (number === 1) {
         return false;
     } else if (number === 2) {
         return true;
     } else if (number % 2 !== 0) {
-        sqrt = Math.ceil(Math.sqrt(number));
-        for (let i = 3; i <= sqrt; i += 2) {
+        for (let i = 3, sqrt = Math.floor(Math.sqrt(number)); i <= sqrt; i += 2) {
             if (number % i === 0) {
                 return false;
             }
