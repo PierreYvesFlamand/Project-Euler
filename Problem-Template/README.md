@@ -1,17 +1,15 @@
-# Project Euler - Problem $NB$
+# Project Euler - Problem
 
-## $TITLE$
-
-$DESCRIPTION$
+##
 
 <details><summary><b>Solution</b></summary>
 <p>
 
 ```js
-$JS CODE$
+
 ```
 
-**Answer : $ANSWER$**
+**Answer : **
 
 [Live Demo](https://pierreyvesflamand.github.io/Project-Euler/1-100/1-10/Problem-01/)
 
