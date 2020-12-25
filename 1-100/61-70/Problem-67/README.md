@@ -14,7 +14,7 @@ By starting at the top of the triangle below and moving to adjacent numbers on t
 
 That is, 3 + 7 + 4 + 9 = 23.
 
-Find the maximum total from top to bottom in [triangle.txt](https://github.com/PierreYvesFlamand/Project-Euler/blob/main/1-100/61-70/Problem-67/p067_triangle.txt) (right click and 'Save Link/Target As...'), a 15K text file containing a triangle with one-hundred rows.
+Find the maximum total from top to bottom in [triangle.txt](https://raw.githubusercontent.com/PierreYvesFlamand/Project-Euler/main/1-100/61-70/Problem-67/p067_triangle.txt) (right click and 'Save Link/Target As...'), a 15K text file containing a triangle with one-hundred rows.
 
 <details><summary><b>Solution</b></summary>
 <p>
