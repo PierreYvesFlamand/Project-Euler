@@ -23,7 +23,3 @@ Here are all my solutions of [Project Euler](https://projecteuler.net/) problems
 [Problem 17](https://github.com/PierreYvesFlamand/Project-Euler/tree/main/1-100/11-20/Problem-17)
 
 [Problem 18](https://github.com/PierreYvesFlamand/Project-Euler/tree/main/1-100/11-20/Problem-18)
-
-[Problem 19](https://github.com/PierreYvesFlamand/Project-Euler/tree/main/1-100/11-20/Problem-19)
-
-[Problem 20](https://github.com/PierreYvesFlamand/Project-Euler/tree/main/1-100/11-20/Problem-20)

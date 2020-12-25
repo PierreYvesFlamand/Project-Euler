@@ -11,3 +11,5 @@ Here are all my solutions of [Project Euler](https://projecteuler.net/) problems
 [1 -> 10](https://github.com/PierreYvesFlamand/Project-Euler/tree/main/1-100/1-10)
 
 [11 -> 20](https://github.com/PierreYvesFlamand/Project-Euler/tree/main/1-100/11-20)
+
+[61 -> 70](https://github.com/PierreYvesFlamand/Project-Euler/tree/main/1-100/61-70)
