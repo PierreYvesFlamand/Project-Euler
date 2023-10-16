@@ -1,0 +1,17 @@
+{
+  "name": "project-euler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "test": "node src/index.js",
+    "all": "node src/scripts/all.js",
+    "unsolved": "node src/scripts/unsolved.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
