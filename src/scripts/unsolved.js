@@ -1,7 +1,7 @@
 const fs = require('fs');
 const answers = require("../answers");
 
-const problemsWithoutAnswers = answers.reduce((list, a, i) => a === null ? [...list, i] : list, []);
+const problemsWithoutAnswers = answers.reduce((list, a, i) => a === null ? [...list, i + 1] : list, []);
 const sortedUnsolvedProblems = {
     wip: [],
     notStarted: []
