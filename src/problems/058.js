@@ -21,7 +21,7 @@ let currentNumber = 1;
 let numerator = 0;
 let denominator = 1;
 
-for (let i = 3; ; i++) {
+for (let i = 3; ; i += 2) {
     denominator += 4;
 
     for (let y = 0; y < 4; y++) {
@@ -29,7 +29,7 @@ for (let i = 3; ; i++) {
         if (isPrime(currentNumber)) numerator++;
     }
 
-    if (numerator / denominator < 0.1) {
+    if (numerator > 0 && numerator / denominator < 0.1) {
         answer = i;
         break;
     }
