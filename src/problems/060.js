@@ -20,21 +20,21 @@ addNextPrimes();
 addNextPrimes();
 addNextPrimes();
 
-while (!answer) {
-    const numbers = [3, 7, 109, 673, primes[primes.length - 1]];
+// while (!answer) {
+//     const numbers = [3, 7, 109, 673, primes[primes.length - 1]];
 
-    let isCorrect = true;
+//     let isCorrect = true;
 
-    for (const pair of getAllPairs(numbers)) {
-        if (!isPrime(Number(String(pair[0]) + String(pair[1]))) || !isPrime(Number(String(pair[1]) + String(pair[0])))) {
-            isCorrect = false;
-            break;
-        }
-    }
+//     for (const pair of getAllPairs(numbers)) {
+//         if (!isPrime(Number(String(pair[0]) + String(pair[1]))) || !isPrime(Number(String(pair[1]) + String(pair[0])))) {
+//             isCorrect = false;
+//             break;
+//         }
+//     }
 
-    if (isCorrect) answer = numbers;
-    addNextPrimes();
-}
+//     if (isCorrect) answer = numbers;
+//     addNextPrimes();
+// }
 
 module.exports = answer;
 
