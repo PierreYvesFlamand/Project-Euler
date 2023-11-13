@@ -16,25 +16,37 @@ function addNextPrimes() {
     primes.push(testedNumber);
 }
 
+const selectedPrimesPos = [0, 1];
+
 addNextPrimes();
 addNextPrimes();
-addNextPrimes();
 
-// while (!answer) {
-//     const numbers = [3, 7, 109, 673, primes[primes.length - 1]];
+while (!answer) {
+    let isOkPrime = true;
+    const selectedPrimes = selectedPrimesPos.map(pos => primes[pos]);
 
-//     let isCorrect = true;
+    for (let i = 0; i < selectedPrimes.length - 1; i++) {
+        if (!isOkPrime) break;
 
-//     for (const pair of getAllPairs(numbers)) {
-//         if (!isPrime(Number(String(pair[0]) + String(pair[1]))) || !isPrime(Number(String(pair[1]) + String(pair[0])))) {
-//             isCorrect = false;
-//             break;
-//         }
-//     }
+        for (let y = i + 1; y < selectedPrimes.length; y++) {
+            if (!isPrime(Number(String(selectedPrimes[i]) + String(selectedPrimes[y]))) || !isPrime(Number(String(selectedPrimes[y]) + String(selectedPrimes[i])))) {
+                isOkPrime = false;
+                break;
+            }
+        }
+    }
 
-//     if (isCorrect) answer = numbers;
-//     addNextPrimes();
-// }
+    if (!isOkPrime) {
+        addNextPrimes();
+        selectedPrimesPos[selectedPrimesPos.length - 1] = selectedPrimesPos[selectedPrimesPos.length - 1] + 1;
+    } else if (selectedPrimes.length < 5) {
+        addNextPrimes();
+        selectedPrimesPos.push(selectedPrimesPos[selectedPrimesPos.length - 1] + 1);
+    } else {
+        console.log(selectedPrimesPos.map(pos => primes[pos]));
+        answer = selectedPrimesPos.map(pos => primes[pos]).reduce((sum, x) => sum += x, 0);
+    }
+}
 
 module.exports = answer;
 

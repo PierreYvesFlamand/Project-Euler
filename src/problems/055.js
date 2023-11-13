@@ -28,15 +28,15 @@ let input_max = 10000;
 let input_max_iteration = 50;
 let answer = 0;
 
-// for (let i = 4994; i < 4994 + 1; i++) {
-//     let nStr = String(i);
+for (let i = 0; i < input_max + 1; i++) {
+    let nStr = String(i);
 
-//     for (let y = 1; y <= input_max_iteration; y++) {
-//         nStr = numberStrAdd(nStr, getNumberStrReverse(nStr));
-//         if (isNumberStrPalindrome(nStr)) break;
-//         if (y === input_max_iteration) answer++;
-//     }
-// }
+    for (let y = 1; y <= input_max_iteration; y++) {
+        nStr = numberStrAdd(nStr, getNumberStrReverse(nStr));
+        if (isNumberStrPalindrome(nStr)) break;
+        if (y === input_max_iteration) answer++;
+    }
+}
 
 module.exports = answer;
 
@@ -51,7 +51,7 @@ function numberStrAdd(nStr1, nStr2) {
         result[i] = (nStr1[i] || 0) + (nStr2[i] || 0) + keep;
         keep = 0;
 
-        if (result[i] > 10) {
+        if (result[i] >= 10) {
             result[i] -= 10;
             keep = 1;
         }
@@ -64,7 +64,11 @@ function numberStrAdd(nStr1, nStr2) {
 }
 
 function getNumberStrReverse(nStr) {
-    return nStr.split('').reverse().join('');
+    nStr = nStr.split('').reverse();
+
+    while (nStr[0] === '0') nStr.shift();
+
+    return nStr.join('');
 }
 
 function isNumberStrPalindrome(nStr) {

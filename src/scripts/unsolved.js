@@ -15,8 +15,9 @@ for (const problemWithoutAnswer of problemsWithoutAnswers) {
     }
 }
 
-console.log(`Unsolved problem WIP : ${format(sortedUnsolvedProblems.wip).join(', ')}`);
-console.log(`Unsolved problem : ${format(sortedUnsolvedProblems.notStarted).join(', ')}`);
+console.log(`Solved problems : ${answers.length - problemsWithoutAnswers.length}/${answers.length} [${((100 / answers.length) * (answers.length - problemsWithoutAnswers.length)).toFixed(1)} %]`);
+console.log(`Unsolved problems WIP : ${format(sortedUnsolvedProblems.wip).join(', ')}`);
+console.log(`Unsolved problems : ${format(sortedUnsolvedProblems.notStarted).join(', ')}`);
 
 function format(arr) {
     const transformedArray = [];
